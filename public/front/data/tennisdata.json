@@ -1,0 +1,92 @@
+{
+"score":
+	[
+		{
+		   "player":"bolaji rebel",
+		   "country":"nigeria",
+		   "location":"abuja",
+		   "tournament":"interstate championships",
+		   "stage":"Group stages"
+		},
+		{
+		   "player":"bolaji rebel2",
+		   "country":"uk",
+		   "location":"abuja",
+		   "tournament":"interstate championships",
+		   "stage":"Group stages"
+		},
+		{
+		   "player":"bolaji rebel2",
+		   "country":"usa",
+		   "location":"abuja",
+		   "tournament":"interstate championships",
+		   "stage":"Group stages"
+		},
+		{
+		   "player":"bolaji rebel2",
+		   "country":"netherlands",
+		   "location":"abuja",
+		   "tournament":"interstate championships",
+		   "stage":"Group stages"
+		},
+		{
+		   "player":"bolaji rebel2",
+		   "country":"france",
+		   "location":"abuja",
+		   "tournament":"interstate championships",
+		   "stage":"Group stages"
+		},
+		{
+		   "player":"bolaji rebel2",
+		   "country":"italy",
+		   "location":"abuja",
+		   "tournament":"interstate championships",
+		   "stage":"Group stages"
+		}
+	],
+"round1":
+	[
+		{
+		   "player":"bolaji rebel",
+		   "country":"nigeria",
+		   "location":"abuja",
+		   "tournament":"interstate championships",
+		   "stage":"Group stages"
+		},
+		{
+		   "player":"bolaji rebel2",
+		   "country":"uk",
+		   "location":"abuja",
+		   "tournament":"interstate championships",
+		   "stage":"Group stages"
+		},
+		{
+		   "player":"bolaji rebel2",
+		   "country":"usa",
+		   "location":"abuja",
+		   "tournament":"interstate championships",
+		   "stage":"Group stages"
+		},
+		{
+		   "player":"bolaji rebel2",
+		   "country":"netherlands",
+		   "location":"abuja",
+		   "tournament":"interstate championships",
+		   "stage":"Group stages"
+		},
+		{
+		   "player":"bolaji rebel2",
+		   "country":"france",
+		   "location":"abuja",
+		   "tournament":"interstate championships",
+		   "stage":"Group stages"
+		},
+		{
+		   "player":"bolaji rebel2",
+		   "country":"italy",
+		   "location":"abuja",
+		   "tournament":"interstate championships",
+		   "stage":"Group stages"
+		}
+	]
+}

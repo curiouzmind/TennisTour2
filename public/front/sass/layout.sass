@@ -1,0 +1,111 @@
+@import "variables"
+//header
+header
+  .header-actions
+    padding: 5px
+    ul
+      margin-bottom: 0
+      li a
+        font-size: $font-size-base + 15
+//page banner
+.content
+  .home-banner
+    height: 200px
+    width: 100%
+    background: url('/img/tennis-banner-min.jpg') center center no-repeat
+    background-size: cover    
+    margin: 0
+    padding: 0
+    clear: both
+    overflow: hidden      
+    @media (min-width: 992px)
+      max-height: $page-banner-height-desktop
+      height: 500px
+    @media (min-width: 767px)
+      max-height: $page-banner-height-tablet
+      height: 500px
+    .intro-message
+      h1
+        color: #fff
+      
+  .overlay
+    background: linear-gradient(rgba(0, 0, 0, 0.27), rgba(0, 0, 0, 0.33)), url('/img/tennis-banner-min.jpg') center center no-repeat
+    background-size: cover
+    h1
+      color: #fff
+      margin: 0 
+      padding: 95px;
+      font-size: 60px;
+    @media(max-width: 767px)
+      // height: $overlay-banner-height-mobile
+      // height: auto
+      // width: 100%
+      h1
+        padding: 45px;
+        font-size: 30px;
+//content
+section
+  margin-top: 60px
+  margin-bottom: 60px
+  .latest-data
+    @media (max-width: 767px)
+      margin-top: 60px
+    .data-box
+      background-color: #333
+      padding: 10px
+      margin-top: 10px
+      .panel-body
+        background-color: $gray-lighter
+        table
+          border: none
+          margin-bottom: 0 !important
+          thead
+            th
+              border: none
+          tfoot
+            td
+              border: none
+    .panel
+      margin-bottom: 0
+    .schedule
+      margin-top: 10px
+      .panel-body
+        p
+          margin-bottom: 0
+          font-weight: 600
+          font-size: 20px
+          span
+            font-weight: 300
+
+.newsletter
+  margin: 30px 0
+  padding: 30px
+
+.adbar-1, .adbar-2
+  height: 100px
+  width: 100%
+  border-bottom: solid 1px #F5F5F5
+  border-top: solid 1px #F5F5F5
+  overflow: hidden
+
+//footer
+footer
+  margin-top: 60px
+  .footer-partners
+    margin: 30px 0
+    img
+      margin-bottom: 20px
+      border-radius: 2px
+  .footer-socials
+    padding: 30px
+    ul
+      margin-bottom: 0
+    ul li a
+      background-color: #fff
+      padding: 5px
+      border-radius: 5px
+  .footer-copyright
+    padding: 5px
+    p, ul
+      margin-bottom: 0
+

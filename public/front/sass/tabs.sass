@@ -1,0 +1,49 @@
+@import "variables"
+
+.nav-tabs
+  border-bottom: 2px solid #DDD
+  li
+    .active 
+      a, a:focus, a:hover
+      border-width: 0
+      a, a:hover
+        border: none !important
+        color: #4285F4 
+        background: transparent
+      a::after
+        transform: scale(1)
+    a
+      border: none
+      color: #666 
+    a.active
+        color: #00511f !important
+    a::after
+      content: ""
+      background: #4285F4
+      height: 2px
+      position: absolute
+      width: 100%
+      left: 0px
+      bottom: -1px
+      transition: all 250ms ease 0s
+      transform: scale(0)
+  li:hover
+    a::after
+      transform: scale(1)
+.tab-nav
+  li
+    a::after
+      background: #21527d none repeat scroll 0% 0%
+      color: #fff
+.tab-content
+  padding: 10px
+  .tab-pane
+    // padding: 15px 0
+    ul
+      li
+        width: 48%
+      select
+        width: 100%
+        padding: 5px
+        option
+          font-style: uppercase !important
