@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="{{asset('admin/quickadmin/css/font-awesome-4.5.0.min.css')}}">
 
 <!-- Ionicons -->
-<link rel="stylesheet" href="{{asset('admin/quickadmin/css/ionicons-2.0.2.min.css') }}">
+<link rel="stylesheet" href="{{asset('admin/quickadmin/css/ionicons-2.0.1.min.css') }}">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -38,6 +38,6 @@
 <link rel="stylesheet"
       href="{{asset('admin/quickadmin/css/buttons.dataTables-1.2.4.min.css') }}"/>
 <link rel="stylesheet"
-      href="{{asset('admin/quickadmin/css/jquery-ui-timepicker-addon-1.4.5.min.css"/>
+      href="{{asset('admin/quickadmin/css/jquery-ui-timepicker-addon-1.4.5.min.css')}}"/>
 <link rel="stylesheet"
-      href="{{asset('admin/quickadmin/css/bootstrap-datepicker.standalone-1.5.0.min.css"/>
+      href="{{asset('admin/quickadmin/css/bootstrap-datepicker.standalone-1.5.0.min.css')}}"/>
