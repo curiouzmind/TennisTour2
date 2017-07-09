@@ -12,6 +12,7 @@
 
 <!-- Tell the browser to be responsive to screen width -->
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<meta name="csrf-token" content="{{ csrf_token() }}"/>
 <!-- Font Awesome -->
 <link rel="stylesheet" href="{{asset('admin/quickadmin/css/font-awesome-4.5.0.min.css')}}">
 
@@ -24,11 +25,11 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link href="{{ asset('admin/adminlte/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"/>
+<link href="{{asset('admin/adminlte/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"/>
 <link rel="stylesheet"
-      href="{{ asset('admin/quickadmin/css/select2.min.css')}} "/>
-<link href="{{ asset('admin/adminlte/css/AdminLTE.min.css') }}" rel="stylesheet"/>
-<link href="{{ asset('admin/adminlte/css/skins/skin-blue.min.css') }}" rel="stylesheet"/>
+      href="{{asset('admin/quickadmin/css/select2.min.css')}} "/>
+<link href="{{asset('admin/adminlte/css/AdminLTE.min.css') }}" rel="stylesheet"/>
+<link href="{{asset('admin/adminlte/css/skins/skin-blue.min.css') }}" rel="stylesheet"/>
 <link rel="stylesheet"
       href="{{asset('admin/quickadmin/css/jquery-ui-1.11.3.css') }}"/>
 <link rel="stylesheet"

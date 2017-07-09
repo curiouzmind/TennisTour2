@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Role;
 use App\Services\RoleService;
+use App\Repositories\Permission\PermissionRepositoryContract;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreRolesRequest;
@@ -28,9 +29,7 @@ class RolesController extends Controller
      */
     public function index()
     {
-        $this->roleService->allowsAccess();
         $roles = $this->roleService->getAll();
-
         return view('admin.roles.index', compact('roles'));
     }
 
@@ -39,12 +38,13 @@ class RolesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(PermissionRepositoryContract $permissions)
     {
-        $this->roleService->allowsCreate();
+        //$this->roleService->allowsCreate();
        // $teams = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
+        $permissions = $permissions->listPermissions();
 
-        return view('admin.roles.create');
+        return view('admin.roles.create', compact('permissions'));
     }
 
     /**
@@ -55,9 +55,8 @@ class RolesController extends Controller
      */
     public function store(StoreRolesRequest $request)
     {
-        $this->roleService->allowsCreate();
         $data = $request->all();
-        $role = $this->roleService->create($data);
+        //$role = $this->roleService->create($data);
         return redirect()->route('admin.roles.index');
     }
 
@@ -69,10 +68,11 @@ class RolesController extends Controller
      */
     public function edit($id)
     {
-        $this->roleService->allowsEdit();
+        //$this->roleService->allowsEdit();
         //$teams = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
 
         $role = $this->roleService->find($id);
+
 
         return view('admin.roles.edit', compact('role'));
     }
@@ -86,7 +86,7 @@ class RolesController extends Controller
      */
     public function update(UpdaterolesRequest $request, $id)
     {
-        $this->roleService->allowsEdit();
+        //$this->roleService->allowsEdit();
         $data = $request->all();
         $role = $this->roleService->update($id, $data);
     
@@ -102,8 +102,9 @@ class RolesController extends Controller
      */
     public function show($id)
     {
-        $this->roleService->allowsView();
+        //$this->roleService->allowsView();
         $role = $this->roleService->find($id);
+       // dd($role->perms);
 
         return view('admin.roles.show', compact('role'));
     }
@@ -117,8 +118,8 @@ class RolesController extends Controller
      */
     public function destroy($id)
     {
-        $this->roleService->allowsDelete();
-        $this->roleService->delete($id);
+        //$this->roleService->allowsDelete();
+        //$this->roleService->delete($id);
     
         return redirect()->route('admin.roles.index');
     }
@@ -130,7 +131,7 @@ class RolesController extends Controller
      */
     public function massDestroy(Request $request)
     {
-        $this->roleService->allowsDelete();
+        //$this->roleService->allowsDelete();
         $data = $request->all();
         $this->roleService->deleteMany($data);
     }

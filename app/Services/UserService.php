@@ -28,11 +28,9 @@ class UserService
         return $this->userRepo->getAll();
     }
 
-    public function getById($userId, array $options = [])
+    public function find($id)
     {
-        $user = $this->getRequestedUser($userId);
-
-        return $user;
+        return $this->userRepo->find($id);
     }
 
      public function create($data)

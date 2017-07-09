@@ -6,6 +6,10 @@ interface RoleRepositoryContract
 	public function getModel();
 	
     public function find($id);
+    
+    public function listRoles();
+
+    public function getPermissions($role);
 
     public function getAll();
 

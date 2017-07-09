@@ -1,5 +1,5 @@
 <?php
-namespace App\Repositories\Match;
+namespace App\Repositories\User;
 
 interface UserRepositoryContract
 {
@@ -7,7 +7,7 @@ interface UserRepositoryContract
 
 	public function getAll();
 
-    public function getById($id);
+    public function find($id);
     
     public function create($requestData);
 
@@ -15,11 +15,8 @@ interface UserRepositoryContract
 
     public function destroy($id);
 
-    public function listAllMatches();
-	
-	public function getTournament($id);
 
-    public function getModel();
+	
 
   
 

@@ -1,9 +1,9 @@
 <?php
-namespace App\Repositories\Match;
+namespace App\Repositories\User;
 
 use App\Models\User;
 
-class UserRepository extends UserRepositoryContract
+class UserRepository implements UserRepositoryContract
 {
 	public function getModel()
     {
@@ -12,39 +12,30 @@ class UserRepository extends UserRepositoryContract
 
     public function getAll()
     {
-        return $this->getModel()->all();
+        return User::all();
     }
 	
-    public function getById($id)
+    public function find($id)
     {
         return User::findOrFail($id);
     }
 
     public function create($requestData)
     {
-        $user = $this->getModel();
-        $user->fill($requestData);
-        $user->save()
-        return $user;
+        return User::create($requestData);
     }
 
-    public function update(User $user, array $data)
+    public function update($id, $data)
     {
-        $user->fill($data);
-
-        $user->save();
-
+        $user = User::findOrFail($id);
+        $user->fill($data)->save();
         return $user;
     }
 
-    public function destroy($id);
-
-    public function listAllMatches();
-	
-	public function getTournament($id);
-
-    public function getModel();
-
+    public function destroy($id)
+    {
+        return User::destroy($id);
+    }
     
 
 }

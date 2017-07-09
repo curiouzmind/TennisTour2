@@ -1,15 +1,14 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h3 class="page-title">Roles</h3>
-    
-    {!! Form::model($role, ['method' => 'PUT', 'route' => ['admin.roles.update', $role->id]]) !!}
+    <h3 class="page-title">Role</h3>
+    {!! Form::open(['method' => 'POST', 'route' => ['admin.roles.store']]) !!}
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            Edit
+            Create
         </div>
-
+        
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
@@ -52,7 +51,7 @@
         </div>
     </div>
 
-    {!! Form::submit('Update', ['class' => 'btn btn-danger']) !!}
+    {!! Form::submit('Save', ['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}
 @stop
 

@@ -14,6 +14,17 @@ class RoleRepository implements RoleRepositoryContract
 		return Role::findOrFail($id);
 	}
 
+	public function listRoles()
+	{
+		$roles = Role::get()->pluck('name', 'id');
+		return $roles;
+	}
+
+	public function getPermissions($role)
+    {
+        return $role->perms;
+    }
+
 	public function getModel()
 	{
 		return new Role();

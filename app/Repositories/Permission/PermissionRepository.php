@@ -14,6 +14,12 @@ class PermissionRepository implements PermissionRepositoryContract
 		return Permission::findOrFail($id);
 	}
 
+	public function listPermissions()
+	{
+	$permissions = Permission::get()->pluck('name', 'id');
+		return $permissions;
+	}
+
 	public function getModel()
 	{
 		return new Permission();

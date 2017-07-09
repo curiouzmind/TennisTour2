@@ -15,7 +15,7 @@
             
            
             <li class="treeview">
-                <a href="#">
+                <a href="">
                     <i class="fa fa-users"></i>
                     <span class="title">User management</span>
                     <span class="pull-right-container">
@@ -23,7 +23,15 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                
+
+                <li class="{{ $request->segment(2) == 'users' ? 'active active-sub' : '' }}">
+                        <a href="{{ route('admin.users.index') }}">
+                            <i class="fa fa-briefcase"></i>
+                            <span class="title">
+                                Users
+                            </span>
+                        </a>
+                </li>
             
                 <li class="{{ $request->segment(2) == 'roles' ? 'active active-sub' : '' }}">
                         <a href="{{ route('admin.roles.index') }}">
@@ -32,16 +40,16 @@
                                 Roles
                             </span>
                         </a>
-                    </li>
+                </li>
                
-                <li class="{{ $request->segment(2) == 'users' ? 'active active-sub' : '' }}">
-                        <a href="{{ route('admin.users.index') }}">
+                <li class="{{ $request->segment(2) == 'permissions' ? 'active active-sub' : '' }}">
+                        <a href="{{ route('admin.permissions.index') }}">
                             <i class="fa fa-user"></i>
                             <span class="title">
-                                @lang('quickadmin.users.title')
+                                Permissions
                             </span>
                         </a>
-                    </li>
+                </li>
            
                 </ul>
             </li>

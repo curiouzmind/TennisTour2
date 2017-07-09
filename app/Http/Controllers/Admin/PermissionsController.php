@@ -28,7 +28,7 @@ class permissionsController extends Controller
      */
     public function index()
     {
-        $this->permissionService->allowsAccess();
+       // $this->permissionService->allowsAccess();
         $permissions = $this->permissionService->getAll();
 
         return view('admin.permissions.index', compact('permissions'));
@@ -41,7 +41,7 @@ class permissionsController extends Controller
      */
     public function create()
     {
-        $this->permissionService->allowsCreate();
+       // $this->permissionService->allowsCreate();
        // $teams = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
 
         return view('admin.permissions.create');
@@ -55,7 +55,7 @@ class permissionsController extends Controller
      */
     public function store(StorePermissionsRequest $request)
     {
-        $this->permissionService->allowsCreate();
+       // $this->permissionService->allowsCreate();
         $data = $request->all();
         $permission = $this->permissionService->create($data);
         return redirect()->route('admin.permissions.index');
@@ -69,7 +69,7 @@ class permissionsController extends Controller
      */
     public function edit($id)
     {
-        $this->permissionService->allowsEdit();
+       // $this->permissionService->allowsEdit();
         //$teams = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
 
         $permission = $this->permissionService->find($id);
@@ -86,7 +86,7 @@ class permissionsController extends Controller
      */
     public function update(UpdatePermissionsRequest $request, $id)
     {
-        $this->permissionService->allowsEdit();
+      //  $this->permissionService->allowsEdit();
         $data = $request->all();
         $permission = $this->permissionService->update($id, $data);
     
@@ -102,7 +102,7 @@ class permissionsController extends Controller
      */
     public function show($id)
     {
-        $this->permissionService->allowsView();
+      //  $this->permissionService->allowsView();
         $permission = $this->permissionService->find($id);
 
         return view('admin.permissions.show', compact('permission'));
@@ -117,7 +117,7 @@ class permissionsController extends Controller
      */
     public function destroy($id)
     {
-        $this->permissionService->allowsDelete();
+       // $this->permissionService->allowsDelete();
         $this->permissionService->delete($id);
     
         return redirect()->route('admin.permissions.index');
@@ -130,7 +130,7 @@ class permissionsController extends Controller
      */
     public function massDestroy(Request $request)
     {
-        $this->permissionService->allowsDelete();
+       // $this->permissionService->allowsDelete();
         $data = $request->all();
         $this->permissionService->deleteMany($data);
     }

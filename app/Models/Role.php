@@ -1,18 +1,15 @@
 <?php
-
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Zizaco\Entrust\EntrustRole;
 
-class Role extends Model
+class Role extends EntrustRole
 {
-    protected $fillable = [
-    	'title'
-    ];
-    protected $table = 'roles';
+	protected $table = 'roles';
 
-    public function matches()
-    {
-    	return $this->hasMany(Match::class,'match_id','id');
-    }
+	protected $fillable = [
+		'name',
+		'display_name',
+		'description'
+	];
 }

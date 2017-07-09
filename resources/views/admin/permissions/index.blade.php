@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h3 class="page-title">Roles</h3>
+    <h3 class="page-title">Permissions</h3>
     
     <p>
-        <a href="{{ route('admin.roles.create') }}" class="btn btn-success">Add New</a>
+        <a href="{{ route('admin.permissions.create') }}" class="btn btn-success">Add New</a>
         
     </p>
     
@@ -15,7 +15,7 @@
         </div>
 
         <div class="panel-body table-responsive">
-            <table class="table table-bordered table-striped {{ count($roles) > 0 ? 'datatable' : '' }}  dt-select">
+            <table class="table table-bordered table-striped {{ count($permissions) > 0 ? 'datatable' : '' }}  dt-select">
                 <thead>
                     <tr>
                         
@@ -25,38 +25,34 @@
                         <th>Name</th>
                         <th>Display</th>
                         <th>Description</th>
-                        <th>Permission</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
                 
                 <tbody>
-                    @if (count($roles) > 0)
-                        @foreach ($roles as $role)
-                            <tr data-entry-id="{{ $role->id }}">
+                    @if (count($permissions) > 0)
+                        @foreach ($permissions as $permission)
+                            <tr data-entry-id="{{ $permission->id }}">
                                 
                                     <td></td>
                                 
 
-                                <td>{{ $role->name }}</td>
-                                <td>{{ $role->display_name }}</td>
-                                <td>{{ $role->description }}</td>
-                                <td> @foreach($role->perms as $permission)
-                                      <span class="btn btn-xs btn-primary">{{ $permission->name or '' }}</span> @endforeach
-                                </td>
+                                <td>{{ $permission->name }}</td>
+                                <td>{{ $permission->display_name }}</td>
+                                <td>{{ $permission->description }}</td>
                                 <td>
                                     
-                                    <a href="{{ route('admin.roles.show',[$role->id]) }}" class="btn btn-xs btn-primary">View</a>
+                                    <a href="{{ route('admin.permissions.show',[$permission->id]) }}" class="btn btn-xs btn-primary">View</a>
                                     
                                     
-                                    <a href="{{ route('admin.roles.edit',[$role->id]) }}" class="btn btn-xs btn-info">Edit</a>
+                                    <a href="{{ route('admin.permissions.edit',[$permission->id]) }}" class="btn btn-xs btn-info">Edit</a>
                                     
                                     
                                     {!! Form::open(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'DELETE',
                                         'onsubmit' => "return confirm('Are you sure');",
-                                        'route' => ['admin.roles.destroy', $role->id])) !!}
+                                        'route' => ['admin.permissions.destroy', $permission->id])) !!}
                                     {!! Form::submit('delete', array('class' => 'btn btn-xs btn-danger')) !!}
                                     {!! Form::close() !!}
                                     
@@ -77,7 +73,7 @@
 @section('javascript') 
     <script>
         
-            window.route_mass_crud_entries_destroy = '{{ route('admin.roles.mass_destroy') }}';
+            window.route_mass_crud_entries_destroy = '{{ route('admin.permissions.mass_destroy') }}';
         
 
     </script>

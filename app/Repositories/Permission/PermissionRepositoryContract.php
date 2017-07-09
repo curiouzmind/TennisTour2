@@ -7,6 +7,8 @@ interface PermissionRepositoryContract
 	
     public function find($id);
 
+    public function listPermissions();
+
     public function getAll();
 
     public function getAllPermissionsCount();

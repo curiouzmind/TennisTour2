@@ -31,12 +31,6 @@ class TournamentService
         return $this->tournamentRepo->find($id);
     }
 
-    public function getById($userId, array $options = [])
-    {
-        $tournament = $this->getRequestedTournament($tournamentId);
-
-        return $tournament;
-    }
 
      public function create($data)
     {
@@ -60,16 +54,7 @@ class TournamentService
         return $this->tournamentRepo->update($id, $data);
     }
 
-    private function getRequestedPlayer($playerId)
-    {
-        $tournament = $this->tournamentRepo->getById($tournamentId);
-
-        if (is_null($tournament)) {
-            throw new tournamentNotFoundException();
-        }
-
-        return $player;
-    }
+    
 
     public function allowsAccess()
     {
