@@ -67,11 +67,10 @@ class ScheduleRepository implements ScheduleRepositoryContract
     public function deleteMany($data)
     {
         if ($data['ids']) {
-            $entries = MatchSchedule::whereIn('id', $data['ids']);
-
-            foreach ($entries as $entry) {
-                $entry->delete();
+            foreach ($data['ids'] as $id){
+                Match::destroy($id);
             }
+          
         }
     }
 

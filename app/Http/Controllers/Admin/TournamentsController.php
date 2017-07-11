@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Tournament;
 use App\Services\TournamentService;
+use App\Models\Tournament;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreTournamentsRequest;
@@ -11,14 +11,11 @@ use App\Http\Requests\Admin\UpdateTournamentsRequest;
 
 class TournamentsController extends Controller
 {
-    private $users;
-    private $tournamentService
+    private $tournamentService;
 
     public function __construct(TournamentService $tournamentService)
     {
         $this->tournamentService = $tournamentService;
-       // $this->middleware('client.create', ['only' => ['create']]);
-        //$this->middleware('client.update', ['only' => ['edit']]);
     }
 
 
@@ -29,9 +26,8 @@ class TournamentsController extends Controller
      */
     public function index()
     {
-        $this->$tournamentService->allowsAccess();
-        $tournaments = $this->$tournamentService->getAll();
-
+        $tournaments = $this->tournamentService->getAll();
+    
         return view('admin.tournaments.index', compact('tournaments'));
     }
 
@@ -42,7 +38,6 @@ class TournamentsController extends Controller
      */
     public function create()
     {
-        $this->tournamentService->allowsCreate();
        // $teams = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
 
         return view('admin.tournaments.create');
@@ -54,9 +49,9 @@ class TournamentsController extends Controller
      * @param  \App\Http\Requests\StoreTournamentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTournamentRequest $request)
+    public function store(StoreTournamentsRequest $request)
     {
-        $this->tournamentService->allowsCreate();
+
         $data = $request->all();
         $tournament = $this->tournamentService->create($data);
         return redirect()->route('admin.tournaments.index');
@@ -70,7 +65,7 @@ class TournamentsController extends Controller
      */
     public function edit($id)
     {
-        $this->tournamentService->allowsEdit();
+        
         //$teams = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
 
         $tournament = $this->tournamentService->find($id);
@@ -85,9 +80,9 @@ class TournamentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateTournamentRequest $request, $id)
+    public function update(UpdateTournamentsRequest $request, $id)
     {
-        $this->tournamentService->allowsEdit();
+      
         $data =$request->all();
         $tournament = $this->tournamentService->update($id, $data);
     
@@ -103,7 +98,7 @@ class TournamentsController extends Controller
      */
     public function show($id)
     {
-        $this->tournamentService->allowsView();
+        
         $tournament = $this->tournamentService->find($id);
 
         return view('admin.tournaments.show', compact('tournament'));
@@ -118,7 +113,7 @@ class TournamentsController extends Controller
      */
     public function destroy($id)
     {
-        $this->tournamentService->allowsDelete();
+       
         $this->tournamentService->delete($id);
     
         return redirect()->route('admin.tournaments.index');
@@ -131,7 +126,7 @@ class TournamentsController extends Controller
      */
     public function massDestroy(Request $request)
     {
-        $this->tournamentService->allowsDelete();
+        
         $data = $request->all();
         $this->tournamentService->deleteMany($data);
     }

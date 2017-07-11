@@ -48,6 +48,19 @@
                     @endif
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('permissions', 'Permissions', ['class' => 'control-label']) !!}
+                    {!! Form::select('permissions[]', $permissions, $rolePermissions, ['class' => 'form-control select2','multiple']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('player1_id'))
+                        <p class="help-block">
+                            {{ $errors->first('player1_id') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
             
         </div>
     </div>

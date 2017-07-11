@@ -11,13 +11,13 @@ interface TournamentRepositoryContract
 	
 	//public function getPlayerProfile($id);
 
-    public function getAllTurnamentsCount();
+    public function getAllTournamentsCount();
 
     public function create($requestData);
 
     public function update($id, $requestData);
 
-    public function destroy($id);
+    public function delete($id);
 
     public function deleteMany($requestData);
 

@@ -13,10 +13,12 @@ use App\Http\Requests\Admin\UpdateRolesRequest;
 class RolesController extends Controller
 {
     private $roleService;
+    private $permission;
 
-    public function __construct( RoleService $roleService)
+    public function __construct( RoleService $roleService, PermissionRepositoryContract $permission)
     {
         $this->roleService = $roleService;
+        $this->permission = $permission;
        // $this->middleware('client.create', ['only' => ['create']]);
         //$this->middleware('client.update', ['only' => ['edit']]);
     }
@@ -38,11 +40,11 @@ class RolesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(PermissionRepositoryContract $permissions)
+    public function create()
     {
         //$this->roleService->allowsCreate();
        // $teams = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
-        $permissions = $permissions->listPermissions();
+        $permissions = $this->permission->listPermissions();
 
         return view('admin.roles.create', compact('permissions'));
     }
@@ -56,7 +58,8 @@ class RolesController extends Controller
     public function store(StoreRolesRequest $request)
     {
         $data = $request->all();
-        //$role = $this->roleService->create($data);
+        //dd($data);
+        $role = $this->roleService->create($data);
         return redirect()->route('admin.roles.index');
     }
 
@@ -72,9 +75,11 @@ class RolesController extends Controller
         //$teams = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
 
         $role = $this->roleService->find($id);
+        $rolePermissions = $this->roleService->getPermissions($role);
+        $permissions = $this->permission->listPermissions($role);
+        //dd($permissions);
 
-
-        return view('admin.roles.edit', compact('role'));
+        return view('admin.roles.edit', compact('role','permissions','rolePermissions'));
     }
 
     /**
@@ -84,7 +89,7 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdaterolesRequest $request, $id)
+    public function update(UpdateRolesRequest $request, $id)
     {
         //$this->roleService->allowsEdit();
         $data = $request->all();

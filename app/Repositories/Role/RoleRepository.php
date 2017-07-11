@@ -20,9 +20,36 @@ class RoleRepository implements RoleRepositoryContract
 		return $roles;
 	}
 
+	public function create($requestData)
+	{
+		$role = Role::create($requestData);
+		$this->addPerm($role,$requestData);
+
+		return $role;
+		
+	}
+
+	public function addPerm($role,$data)
+	{
+		isset($data['permissions']) ? $role->attachPermissions($requestData['permissions']) : $role;
+	}
+
+	public function update($id, $data)
+	{
+		$role = Role::findOrFail($id);
+		$role->fill($data)->save();
+		$this->updatePerm($role,$data);
+		return $role;
+	}
+
+	public function updatePerm($role, $data)
+	{
+		isset($data['permissions']) ? $role->savePermissions($data['permissions']) : $role;
+	}
+
 	public function getPermissions($role)
     {
-        return $role->perms;
+        return $role->perms()->pluck('name', 'id');
     }
 
 	public function getModel()
@@ -43,17 +70,6 @@ class RoleRepository implements RoleRepositoryContract
 		return Role::all()->count();
 	}
 
-    public function create($requestData)
-	{
-		return Role::create($requestData);
-	}
-
-    public function update($id, $requestData)
-	{
-		$Role= Role::findOrFail($id);
-		$Role->fill($requestData)->save();
-		return $Role;
-	}
 
     public function destroy($id)
 	{
@@ -63,11 +79,10 @@ class RoleRepository implements RoleRepositoryContract
 	public function deleteMany($data)
 	{
 		if ($data['ids']) {
-            $entries = Role::whereIn('id', $data['ids']);
-
-            foreach ($entries as $entry) {
-                $entry->delete();
-            }
+			foreach ($data['ids'] as $id){
+				Role::destroy($id);
+			}
+          
         }
 	}
 

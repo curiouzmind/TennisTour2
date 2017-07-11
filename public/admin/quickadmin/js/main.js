@@ -97,12 +97,13 @@ $(document).ready(function () {
 
             $.ajax({
                 method: 'POST',
-                url: $(this).attr('href'),
+                url: route_mass_crud_entries_destroy,
                 data: {
                     _token: _token,
                     ids: ids
                 }
             }).done(function () {
+                //console.log("href", route_mass_crud_entries_destroy);
                 location.reload();
             });
         }

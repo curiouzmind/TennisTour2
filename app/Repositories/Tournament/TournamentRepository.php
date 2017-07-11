@@ -30,7 +30,7 @@ class TournamentRepository implements TournamentRepositoryContract
 	 * @param $id
 	 * @return mixed
 	 */
-    public function getTournamentProfile($id)
+    public function getTournamentMatches($id)
 	{
 		return Tournament::findOrFail($id)->profile;
 	}
@@ -52,7 +52,7 @@ class TournamentRepository implements TournamentRepositoryContract
 		return $Tournament;
 	}
 
-    public function destroy($id)
+    public function delete($id)
 	{
 		return Tournament::destroy($id);
 	}
@@ -60,11 +60,10 @@ class TournamentRepository implements TournamentRepositoryContract
 	public function deleteMany($data)
 	{
 		if ($data['ids']) {
-            $entries = Tournament::whereIn('id', $data['ids']);
-
-            foreach ($entries as $entry) {
-                $entry->delete();
-            }
+			foreach ($data['ids'] as $id){
+				Tournament::destroy($id);
+			}
+          
         }
 	}
 

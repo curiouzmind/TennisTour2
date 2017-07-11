@@ -44,8 +44,8 @@
                                 <td>{{ $player->birth_place }}</td>
                                 <td>{{ $player->hand_type }}</td>
                                 <td>{{ $player->height }}</td>
-                                <td>{{ $player->single_ranking }}</td>
-                                <td>{{ $player->doble_ranking }}</td>
+                                <td>{{ $player->singles_ranking }}</td>
+                                <td>{{ $player->doubles_ranking }}</td>
                                 <td>
                                     
                                     <a href="{{ route('admin.players.show',[$player->id]) }}" class="btn btn-xs btn-primary">View</a>

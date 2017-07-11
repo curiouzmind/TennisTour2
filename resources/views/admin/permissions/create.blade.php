@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h3 class="page-title">Role</h3>
-    {!! Form::open(['method' => 'POST', 'route' => ['admin.roles.store']]) !!}
+    <h3 class="page-title">Permission</h3>
+    {!! Form::open(['method' => 'POST', 'route' => ['admin.permissions.store']]) !!}
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('name', 'Name*', ['class' => 'control-label']) !!}
-                    {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => 'Enter the Role name here', 'required' => '']) !!}
+                    {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => 'Enter the permission name here', 'required' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('name'))
                         <p class="help-block">

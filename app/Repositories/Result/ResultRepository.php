@@ -46,11 +46,10 @@ class ResultRepository implements ResultRepositoryContract
 	public function deleteMany($data)
 	{
 		if ($data['ids']) {
-            $entries = Result::whereIn('id', $data['ids']);
-
-            foreach ($entries as $entry) {
-                $entry->delete();
-            }
+			foreach ($data['ids'] as $id){
+				Result::destroy($id);
+			}
+          
         }
 	}
 

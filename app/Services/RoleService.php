@@ -47,9 +47,9 @@ class RoleService
         return $role;
     }
 
-    public function getPermissions()
+    public function getPermissions($role)
     {
-        return $this->roleRepo->getPermission();
+        return $this->roleRepo->getPermissions($role);
     }
 
     public function delete($id)

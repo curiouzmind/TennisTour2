@@ -58,12 +58,12 @@ class PermissionRepository implements PermissionRepositoryContract
 	public function deleteMany($data)
 	{
 		if ($data['ids']) {
-            $entries = Permission::whereIn('id', $data['ids']);
-
-            foreach ($entries as $entry) {
-                $entry->delete();
-            }
+			foreach ($data['ids'] as $id){
+				Permission::destroy($id);
+			}
+          
         }
+        
 	}
 
 }

@@ -60,11 +60,10 @@ class PlayerRepository implements PlayerRepositoryContract
 	public function deleteMany($data)
 	{
 		if ($data['ids']) {
-            $entries = Player::whereIn('id', $data['ids']);
-
-            foreach ($entries as $entry) {
-                $entry->delete();
-            }
+			foreach ($data['ids'] as $id){
+				Player::destroy($id);
+			}
+          
         }
 	}
 

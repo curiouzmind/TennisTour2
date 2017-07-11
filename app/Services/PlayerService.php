@@ -24,7 +24,7 @@ class PlayerService
         $this->playerRepo = $playerRepo;
     }
 
-    public function getAll($options = [])
+    public function getAll()
     {
         return $this->playerRepo->getAll();
     }

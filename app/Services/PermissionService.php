@@ -48,7 +48,7 @@ class PermissionService
     }
     public function delete($id)
     {
-        $this->permissionRepo->delete($id);
+        $this->permissionRepo->destroy($id);
     }
     public function deleteMany($data)
     {
