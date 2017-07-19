@@ -11,7 +11,7 @@ class PlayerRepository implements PlayerRepositoryContract
 	 */
     public function find($id)
 	{
-		return Player::findOrFail($id);
+		return Player::findOrFail($id)->first();
 	}
 	public function getModel()
 	{
@@ -25,6 +25,21 @@ class PlayerRepository implements PlayerRepositoryContract
 	{
 		return Player::all();
 	}
+
+	/**
+     * @param string $key
+     *
+     * @return Session
+     */
+    public function getByKey($key,$value)
+    {
+        return Player::where($key, $value)->get();
+    }
+
+    public function getPlayersByGender($type)
+    {
+    	return Player::gender($type)->orderBy('first_name','asc')->get();
+    }
 	
 	/*
 	 * @param $id

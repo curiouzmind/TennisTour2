@@ -4,8 +4,8 @@
         <div class="container-fluid">
             <ul class="list-inline pull-right">
                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                <li><a href="#"><i class="fa fa-user"></i> Log in</a></li>
-                <li><a href="#"><i class="fa fa-plus"></i> Sign up</a></li>
+                <li><a href="{{route('login')}}"><i class="fa fa-user"></i> Log in</a></li>
+                <li><a href="{{route('register')}}"><i class="fa fa-plus"></i> Sign up</a></li>
             </ul>
         </div>
     </div>
@@ -25,7 +25,7 @@
                 <span class="hamburger-inner"></span>
               </span>
             </button>
-            <a class="navbar-brand" href="#">Tennis Site</a>
+            <a class="navbar-brand" href="{{route('home')}}">Tennis Site</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav hidden">
@@ -34,17 +34,17 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Matches <span class="caret"></span></a>
+                    <a href="{{route('matches')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Matches <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Scores & Stats</a></li>
-                        <li><a href="#">Draws</a></li>
+                        <li><a href="{{route('matches')}}">Draws</a></li>
                         <li><a href="#">Schedules</a></li>
                         <li><a href="#">Tournaments</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Players</a></li>
+                <li><a href="{{route('players')}}">Players</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Media <span class="caret"></span></a>
+                    <a href="{{route('media')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Media <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Articles</a></li>
                         <li><a href="#">Videos</a></li>

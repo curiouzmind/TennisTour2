@@ -42,3 +42,5 @@
       href="{{asset('admin/quickadmin/css/jquery-ui-timepicker-addon-1.4.5.min.css')}}"/>
 <link rel="stylesheet"
       href="{{asset('admin/quickadmin/css/bootstrap-datepicker.standalone-1.5.0.min.css')}}"/>
+      <link rel="stylesheet"
+      href="{{asset('admin/quickadmin/css/fileinput.css')}}"/>

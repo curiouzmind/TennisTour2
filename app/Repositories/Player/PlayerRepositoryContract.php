@@ -8,6 +8,10 @@ interface PlayerRepositoryContract
     public function find($id);
 
     public function getAll();
+    
+    public function getByKey($key, $value);
+
+    public function getPlayersByGender($type);
 	
 	public function getPlayerProfile($id);
 

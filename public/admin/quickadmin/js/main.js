@@ -223,3 +223,8 @@ function processAjaxTables() {
     });
 
 }
+
+$("#avatar").fileinput({
+    'allowedFileExtensions' : ['jpg', 'png','gif'],
+    showUpload:false,
+});

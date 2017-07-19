@@ -13,6 +13,7 @@
 <script src="{{asset('admin/quickadmin/js/bootstrap.min.js') }}"></script>
 <script src="{{asset('admin/quickadmin/js/select2.full.min.js') }}"></script>
 <script src="{{asset('admin/js/secure-trading-st.js') }}"></script>
+<script src="{{asset('admin/quickadmin/js/fileinput.js') }}"></script>
 <script src="{{asset('admin/quickadmin/js/main.js') }}"></script>
 
 <script src="{{asset('admin/adminlte/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>

@@ -71,7 +71,7 @@ class UsersController extends Controller
     
        // $roles = $this->role->listRoles();
         $user = $this->userService->find($id);
-        $roles = $user->roles
+        $roles = $user->roles;
         return view('admin.users.edit', compact('user','roles'));
     }
 

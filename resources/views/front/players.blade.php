@@ -31,122 +31,51 @@
                 <div role="tabpanel" class="tab-pane fade active in table-responsive" id="men">
                     <div class="well player-nav">
                         <span>
-                            <a href="#ma">a</a><a href="#mb">b</a><a href="#mc">c</a><a href="#md">d</a><a href="#me">e</a>
-                            <a href="#mf">f</a><a href="#mg">g</a><a href="#mh">h</a><a href="#mi">i</a><a href="#mj">j</a>
-                            <a href="#mk">k</a><a href="#ml">l</a><a href="#mm">m</a><a href="#mn">n</a><a href="#mo">o</a>
-                            <a href="#mp">p</a><a href="#mq">q</a><a href="#mr">r</a><a href="#ms">s</a><a href="#mt">t</a>
-                            <a href="#mu">u</a><a href="#mv">v</a><a href="#mw">w</a><a href="#mx">x</a><a href="#my">y</a>
-                            <a href="#mz">z</a>
+                        @foreach($aZRange as $letter)
+                            <a href="#m{{strtolower($letter)}}">{{$letter}}</a>
+                        @endforeach
                         </span>
                     </div>
-                    <table id="ma" class="table table-striped">
-                        <caption>A</caption>
-                        <tbody class="players-list-men">
+                      @foreach($aZRange as $letter)
+                        @foreach($malePlayers as $male)
+                         @if (starts_with($male->first_name,$letter))
+                    <table id="m{{ strtolower($letter)}}" class="table table-striped">
+                        <caption>{{ $letter }}</caption>
+                        <tbody class="players-list-men">                     
                             <tr>
-                                <td class="player-name"><span>Abdul</span>, Mohammed</td>
-                                <td class="country">Lagos</td>
-                            </tr>
-                            <tr>
-                                <td class="player-name"><span>Abdullahi</span>, sadiq</td>
-                                <td class="country">Lagos</td>
-                            </tr>
-                            <tr>
-                                <td class="player-name"><span>abiodun</span>, paul</td>
-                                <td class="country">Lagos</td>
-                            </tr>
-                            <tr>
-                                <td class="player-name"><span>adamu</span>, sanni</td>
-                                <td class="country">Lagos</td>
-                            </tr>
-                            <tr>
-                                <td class="player-name"><span>adebisi</span>, abidemi olanrewaju</td>
-                                <td class="country">Lagos</td>
-                            </tr>
+                                <td class="player-name"><span><a href="{{route('single.player',['id'=>$male->id])}}">{{$male->first_name}}</a></span>, {{$male->last_name}}</td>
+                                <td class="country">{{$male->residence}}</td>
+                            </tr>    
                         </tbody>
                     </table>
-                    <table id="mb" class="table table-striped">
-                        <caption>b</caption>
-                        <tbody class="players-list-men">
-                            <tr>
-                                <td class="player-name"><span>balami</span>, umaru</td>
-                                <td class="country">ogun</td>
-                            </tr>
-                            <tr>
-                                <td class="player-name"><span>balogun</span>, sheriff</td>
-                                <td class="country">oyo</td>
-                            </tr>
-                            <tr>
-                                <td class="player-name"><span>basssey</span>, richard</td>
-                                <td class="country">imo</td>
-                            </tr>
-                            <tr>
-                                <td class="player-name"><span>benson</span>, azuka junior</td>
-                                <td class="country">delta</td>
-                            </tr>
-                            <tr>
-                                <td class="player-name"><span>bulus</span>, chrisropher</td>
-                                <td class="country">edo</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    @endif
+                    @endforeach
+
+                @endforeach
                 </div>
                 <div role="tabpanel" class="tab-pane fade table-responsive" id="women">
                     <div class="well player-nav">
                         <span>
-                            <a href="#wa">a</a><a href="#wb">b</a><a href="#wc">c</a><a href="#wd">d</a><a href="#we">e</a>
-                            <a href="#wf">f</a><a href="#wg">g</a><a href="#wh">h</a><a href="#wi">i</a><a href="#wj">j</a>
-                            <a href="#wk">k</a><a href="#wl">l</a><a href="#wm">w</a><a href="#wn">n</a><a href="#wo">o</a>
-                            <a href="#wp">p</a><a href="#wq">q</a><a href="#wr">r</a><a href="#ws">s</a><a href="#wt">t</a>
-                            <a href="#wu">u</a><a href="#wv">v</a><a href="#ww">w</a><a href="#wx">x</a><a href="#wy">y</a>
-                            <a href="#wz">z</a>
+                        @foreach($aZRange as $letter)
+                            <a href="#w{{strtolower($letter)}}">{{$letter}}</a>
+                        @endforeach
                         </span>
                     </div>
-                    <table id="wa" class="table table-striped">
-                        <caption>A</caption>
+                    @foreach($aZRange as $letter)
+                        @foreach($femalePlayers as $female)
+                                @if (starts_with($female->first_name,$letter))
+                    <table id="w{{ strtolower($letter)}}" class="table table-striped">
+                        <caption>{{ $letter}}</caption>
                         <tbody class="players-list-men">
                             <tr>
-                                <td class="player-name"><span>abass</span>, olakunbi</td>
-                                <td class="country">Lagos</td>
-                            </tr>
-                            <tr>
-                                <td class="player-name"><span>adedigba</span>, bukkoy</td>
-                                <td class="country">Lagos</td>
-                            </tr>
-                            <tr>
-                                <td class="player-name"><span>adegoke</span>, sarah</td>
-                                <td class="country">Lagos</td>
-                            </tr>
-                            <tr>
-                                <td class="player-name"><span>ajawuihe</span>, peace</td>
-                                <td class="country">Lagos</td>
-                            </tr>
-                            <tr>
-                                <td class="player-name"><span>ama</span>, ndidi</td>
-                                <td class="country">Lagos</td>
+                                <td class="player-name"><span><a href="{{route('single.player',['id'=>$female->id])}}">{{$female->first_name}}</a>{{$female->first_name}}</span>, {{$female->last_name}}</td>
+                                <td class="country">{{$female->residence}}</td>
                             </tr>
                         </tbody>
                     </table>
-                    <table id="wb" class="table table-striped">
-                        <caption>b</caption>
-                        <tbody class="players-list-men">
-                            <tr>
-                                <td class="player-name"><span>balogun</span>, aminat</td>
-                                <td class="country">ogun</td>
-                            </tr>
-                            <tr>
-                                <td class="player-name"><span>bamigbade</span>, abiodun</td>
-                                <td class="country">oyo</td>
-                            </tr>
-                            <tr>
-                                <td class="player-name"><span>ben</span>, uju</td>
-                                <td class="country">imo</td>
-                            </tr>
-                            <tr>
-                                <td class="player-name"><span>bamidele</span>, temitope</td>
-                                <td class="country">delta</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        @endif
+                    @endforeach
+                @endforeach
                 </div>
             </div>
 		</div>

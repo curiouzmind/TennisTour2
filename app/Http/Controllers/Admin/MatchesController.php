@@ -28,7 +28,6 @@ class MatchesController extends Controller
      */
     public function index()
     {
-        $this->matchService->allowsAccess();
         $matches = $this->matchService->getAll();
 
         return view('admin.matches.index', compact('matches'));
@@ -41,7 +40,6 @@ class MatchesController extends Controller
      */
     public function create()
     {
-        $this->matchService->allowsCreate();
        // $teams = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
 
         return view('admin.matches.create');
@@ -69,7 +67,7 @@ class MatchesController extends Controller
      */
     public function edit($id)
     {
-        $this->matchService->allowsEdit();
+    
         //$teams = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
 
         $match = $this->matchService->find($id);

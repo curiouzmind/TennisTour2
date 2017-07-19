@@ -7,7 +7,7 @@
         <div class="overlay">
             <div class="profile-pic">
                 <img class="img-responsive img-circle center-block" src="{{asset('front/img/player-pics/andyMurray.gif')}}" alt="Player Image">
-                <h1 class="player1">Andy Murray</h1>
+                <h1 class="player1">{{$player->full_name}}</h1>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="breadcrumb">
-			<a href="#"><i class="fa fa-home"></i></a>&nbsp; > &nbsp;<span><a href="#">Players</a></span>&nbsp; > &nbsp;<span>Andy Murray</span>
+			<a href="#"><i class="fa fa-home"></i></a>&nbsp; > &nbsp;<span><a href="#">Players</a></span>&nbsp; > &nbsp;<span>{{$player->full_name}}</span>
 		</div>
 	</div>
 </div>
@@ -33,17 +33,17 @@
                         <div class="panel-body">
                             <div class="row player-summary">
                                 <div class="col-md-6">
-                                    <p><span>Country:</span>United Kingdom</p>
-                                    <p><span>Birth Date:</span>15 May 1987</p>
-                                    <p><span>Birth Place:</span> Glascow, Scotland</p>
-                                    <p><span>Residence:</span>London, England</p>
-                                    <p><span>Plays:</span>Right Hand</p>
+                                    <p><span>Country:</span>{{$player->residence}}</p>
+                                    <p><span>Birth Date:</span>{{$player->dob}}</p>
+                                    <p><span>Birth Place:</span> {{$player->birth_place}}</p>
+                                    <p><span>Residence:</span>{{$player->residence}}</p>
+                                    <p><span>Plays:</span>{{$player->hand_type}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                    <p><span>Height:</span>1.91 Metre</p>
-                                    <p><span>Weigth:</span>84.1 Kilos</p>
-                                    <p><span>Singles Ranking:</span>2</p>
-                                    <p><span>Doubles Ranking:</span>145</p>
+                                    <p><span>Height:</span>{{$player->height}} Metre</p>
+                                    <p><span>Weigth:</span>{{$player->weight}} Kilos</p>
+                                    <p><span>Singles Ranking:</span>{{$player->singles_ranking}}</p>
+                                    <p><span>Doubles Ranking:</span>{{$player->doubles_ranking}}</p>
                                 </div>
                             </div>
                         </div>
@@ -61,23 +61,23 @@
                                 <tbody class="text-uppercase">
                                     <tr>
                                         <td>YEAR TURNED PRO</td>
-                                        <td>2005</td>
+                                        <td>{{$player->year_turned_pro}}</td>
                                     </tr>
                                     <tr>
                                         <td>CAREER MATCHES WON</td>
-                                        <td>574</td>
+                                        <td>{{$player->career_matches_won}}</td>
                                     </tr>
                                     <tr>
                                         <td>CAREER MATCHES LOST</td>
-                                        <td>170</td>
+                                        <td>{{$player->careeer_matches_lost}}</td>
                                     </tr>
                                     <tr>
                                         <td>YEAR TO DATE MATCHES WON</td>
-                                        <td>22</td>
+                                        <td>{{$player->year_to_date_matches_won}}</td>
                                     </tr>
                                     <tr>
                                         <td>YEAR TO DATE MATCHES Lost</td>
-                                        <td>5</td>
+                                        <td>{{$player->year_to_date_matches_lost}}</td>
                                     </tr>
                                 </tbody>
                             </table>

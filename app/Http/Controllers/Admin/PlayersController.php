@@ -55,6 +55,7 @@ class PlayersController extends Controller
     {
        
         $data = $request->all();
+        dd($data);
         $player = $this->playerService->create($data);
         return redirect()->route('admin.players.index');
     }
@@ -82,8 +83,9 @@ class PlayersController extends Controller
      */
     public function update(UpdatePlayersRequest $request, $id)
     {
-      //  $this->playerService->allowsEdit();
+      
         $data =$request->all();
+        dd($data);
         $player = $this->playerService->update($id, $data);
     
         return redirect()->route('admin.players.index');

@@ -3,7 +3,7 @@
 @section('content')
     <h3 class="page-title">Players</h3>
     
-    {!! Form::model($player, ['method' => 'PUT', 'route' => ['admin.players.update', $player->id]]) !!}
+    {!! Form::model($player, ['method' => 'PUT', 'enctype'=> 'multipart/form-data','route' => ['admin.players.update', $player->id]]) !!}
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -23,6 +23,20 @@
                     @endif
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('avatar', 'Upload Image/Avatar', ['class' => 'control-label']) !!}
+                    {!! Form::file('avatar', old('avatar'), ['id'=>'file-0','class' => 'file', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('avatar'))
+                        <p class="help-block">
+                            {{ $errors->first('avatar') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('last_name', 'Last Name', ['class' => 'control-label']) !!}
@@ -121,21 +135,130 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('double-ranking', 'Double Ranking', ['class' => 'control-label']) !!}
-                    {!! Form::text('double_ranking', old('double_ranking'), ['class' => 'form-control', 'placeholder' => 'Enter double ranking']) !!}
+                    {!! Form::label('doubles_ranking', 'Double Ranking', ['class' => 'control-label']) !!}
+                    {!! Form::text('doubles_ranking', old('doubles_ranking'), ['class' => 'form-control', 'placeholder' => 'Enter doubles ranking']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('double_ranking'))
+                    @if($errors->has('doubles_ranking'))
                         <p class="help-block">
-                            {{ $errors->first('double_ranking') }}
+                            {{ $errors->first('doubles_ranking') }}
                         </p>
                     @endif
                 </div>         
-        </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('year_turned_pro', 'Year turned Pro', ['class' => 'control-label']) !!}
+                    {!! Form::text('year_turned_pro', old('year_turned_pro'), ['class' => 'form-control', 'placeholder' => 'Year turned Pro']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('year_turned_pro'))
+                        <p class="help-block">
+                            {{ $errors->first('year_turned_pro') }}
+                        </p>
+                    @endif
+                </div>         
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('matches_won', 'Matches won', ['class' => 'control-label']) !!}
+                    {!! Form::text('matches_won', old('matches_won'), ['class' => 'form-control', 'placeholder' => 'matches won']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('matches_won'))
+                        <p class="help-block">
+                            {{ $errors->first('matches_won') }}
+                        </p>
+                    @endif
+                </div>         
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('matches_lost', 'Matches lost', ['class' => 'control-label']) !!}
+                    {!! Form::text('matches_lost', old('matches_lost'), ['class' => 'form-control', 'placeholder' => 'Matches lost']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('matches_lost'))
+                        <p class="help-block">
+                            {{ $errors->first('matches_lost') }}
+                        </p>
+                    @endif
+                </div>         
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('aces', 'Aces', ['class' => 'control-label']) !!}
+                    {!! Form::text('aces', old('aces'), ['class' => 'form-control', 'placeholder' => 'Total Aces']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('aces'))
+                        <p class="help-block">
+                            {{ $errors->first('aces') }}
+                        </p>
+                    @endif
+                </div>         
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('double_faults', 'Double Faults', ['class' => 'control-label']) !!}
+                    {!! Form::text('double_faults', old('double_faults'), ['class' => 'form-control', 'placeholder' => 'Double Faults']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('double_faults'))
+                        <p class="help-block">
+                            {{ $errors->first('double_faults') }}
+                        </p>
+                    @endif
+                </div>         
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('unforced_errors', 'Unforced Errors', ['class' => 'control-label']) !!}
+                    {!! Form::text('unforced_errors', old('unforced_errors'), ['class' => 'form-control', 'placeholder' => 'Unforced Errors']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('unforced_errors'))
+                        <p class="help-block">
+                            {{ $errors->first('unforced_errors') }}
+                        </p>
+                    @endif
+                </div>         
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('total_points_won', 'Total Points Won', ['class' => 'control-label']) !!}
+                    {!! Form::text('total_points_won', old('total_points_won'), ['class' => 'form-control', 'placeholder' => 'Total Points Won']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('total_points_won'))
+                        <p class="help-block">
+                            {{ $errors->first('total_points_won') }}
+                        </p>
+                    @endif
+                </div>         
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('break_points_won', 'Break Points Won', ['class' => 'control-label']) !!}
+                    {!! Form::text('break_points_won', old('break_points_won'), ['class' => 'form-control', 'placeholder' => 'Break Points Won']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('break_points_won'))
+                        <p class="help-block">
+                            {{ $errors->first('break_points_won') }}
+                        </p>
+                    @endif
+                </div>         
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('distance_covered', 'Distance Covered', ['class' => 'control-label']) !!}
+                    {!! Form::text('distance_covered', old('distance_covered'), ['class' => 'form-control', 'placeholder' => 'Distance Covered']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('double_faults'))
+                        <p class="help-block">
+                            {{ $errors->first('double_faults') }}
+                        </p>
+                    @endif
+                </div>         
+            </div>
             
         </div>
     </div>
 
-    {!! Form::submit('update'), ['class' => 'btn btn-danger']) !!}
+    {!! Form::submit('update', ['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}
 @stop
 

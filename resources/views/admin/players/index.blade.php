@@ -22,11 +22,14 @@
 
                         <th>Player Name</th>
                         <th>Date of Birth</th>
-                        <th>Birth Place</th>
-                        <th>Hand Type</th>
-                        <th>Player Height</th>
+                        <th>Gender</th>
                         <th>Singles Ranking</th>
                         <th>Double  Ranking</th>
+                        <th>Matches Won </th>
+                        <th>Matches Lost </th>
+                        <th>Total Points Won </th>
+                        <th>Break Points Won </th>
+
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
@@ -41,11 +44,13 @@
 
                                 <td>{{ $player->first_name or '' }} {{$player->last_name or '' }}</td>
                                 <td>{{ $player->dob }}</td>
-                                <td>{{ $player->birth_place }}</td>
-                                <td>{{ $player->hand_type }}</td>
-                                <td>{{ $player->height }}</td>
+                                <td>{{ $player->gender }}</td>
                                 <td>{{ $player->singles_ranking }}</td>
                                 <td>{{ $player->doubles_ranking }}</td>
+                                <td>{{ $player->matches_won }}</td>
+                                <td>{{ $player->matches_lost }}</td>
+                                <td>{{ $player->total_points_won }}</td>
+                                <td>{{ $player->break_points_won }}</td>
                                 <td>
                                     
                                     <a href="{{ route('admin.players.show',[$player->id]) }}" class="btn btn-xs btn-primary">View</a>
